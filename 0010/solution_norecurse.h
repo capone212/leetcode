@@ -17,10 +17,12 @@ public:
         }
         table[s.length()][p.length()] = true;
         
-        for (int i = s.length(); i >= 0; --i)
+        for (int i = s.length() - 1; i >= -1; --i)
         {
-            for (int j = p.length()-1; j >= 0; --j)
+            for (int j = p.length() -1; j >= 0; --j)
             {
+                ++m_counter;
+
                 // here we check that previus character was handled in path.
                 // Logic is simple: if we are at [i,j] and went in reverse direction,
                 // then previus step was [i+1, j+1].
@@ -45,6 +47,12 @@ public:
                     continue;
                 }
 
+                if (i < 0)
+                {
+                    // Try match only empty string if input consumed
+                    continue;
+                }
+
                 // current character match check
                 bool match = p[j] == '.' || s[i] == p[j];
                 bool isWildCharacter = (j < p.length()-1) && (p[j+1] == '*');
@@ -55,7 +63,7 @@ public:
                 }
                 
                 // continue ordinary check path
-                table[i][j] = match;
+                table[i][j] = true;
 
                 // continue wildcard check match
                 // this enables multiple character match by wildcard
@@ -66,7 +74,8 @@ public:
                 }
             }
         }
-        return table[1][1];
+
+        return table[0][0];
     }
 
     int getCounter()
