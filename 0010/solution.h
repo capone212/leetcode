@@ -42,6 +42,7 @@ private:
         // }
 
         {
+            
             auto& valset = m_memoization[std::distance(strBegin, strEnd)];
             if (!valset.insert(std::distance(ptnBegin, ptnEnd)).second)
             {

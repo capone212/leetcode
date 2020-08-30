@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#include "solution.h"
+#include "solution_norecurse.h"
 
 struct TestCase
 {
@@ -31,13 +31,15 @@ std::ostream& operator<<(std::ostream& stream, const TestCase& t)
 
 int main()
 {
+    // TODO: write bottom up approach
+    
     std::vector<TestCase> testCases = {
-        // TestCase{"aa", "a", false},
-        // TestCase{"aa", "a*", true},
-        // TestCase{"ab", ".*", true},
-        // TestCase{"aab", "c*a*b*", true},
-        // TestCase{"mississippi", "mis*is*p*.", false},
-        // TestCase{"", ".*", true},
+        TestCase{"aa", "a", false},
+        TestCase{"aa", "a*", true},
+        TestCase{"ab", ".*", true},
+        TestCase{"aab", "c*a*b*", true},
+        TestCase{"mississippi", "mis*is*p*.", false},
+        TestCase{"", ".*", true},
         TestCase{"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaac",
          "a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a*a", false}
     };
