@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#include "solution.h"
+#include "solutionBottomUp.h"
 
 struct TestCase
 {
